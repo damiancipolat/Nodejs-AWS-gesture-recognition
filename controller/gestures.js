@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 const {
 	loadFile
 } = require('../lib/lib.js');
@@ -17,10 +19,19 @@ const gestureController = async (req,res)=>{
 
 	try {
 
-		console.log('* API Gestures - process request',req.files);
+		console.log('* API Gestures - processing request...');
+
+		//Validate image file.
+		assert(req&&req.file,'File not found in request');
+
+		const {
+			destination,
+			filename
+		} = req.file;
 
 		//Load file.
-		const img = await loadFile('./selfie.jpeg');
+		const file = destination+filename;
+		const img  = await loadFile(file);
 
 		//Process image.
 		const result = await processGesture(img,EYESOPEN);

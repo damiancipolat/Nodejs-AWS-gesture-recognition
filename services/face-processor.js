@@ -1,5 +1,8 @@
-const AWS 		= require('aws-sdk');
-const {parse} = require('./face-foo.js');
+const AWS = require('aws-sdk');
+
+const {
+	parse
+} = require('./face-foo.js');
 
 //Set aws credentials
 const rekognition = new AWS.Rekognition({
@@ -13,7 +16,7 @@ const processGesture = async (image,gesture)=>{
 	
 	//Process the image using rekognition.
 	const result = await rekognition.detectFaces(image).promise();
-
+	
 	//Parse the structure from the response.
 	const face = parse(result);
 

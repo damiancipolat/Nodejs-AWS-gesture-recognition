@@ -15,7 +15,7 @@ const {
 //function list to detect gestures.
 const EYESOPEN   = [likeAface, isEyesOpen];
 const EYESCLOSED = [likeAface, isEyesClosed];
-const SMILING	   = [likeAface, isSmiling, isHappy];
+const SMILING	 = [likeAface, isSmiling, isHappy];
 
 module.exports = {
 	EYESOPEN,
