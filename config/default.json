@@ -1,0 +1,10 @@
+{
+	"server":{
+		"port":"3000"
+	},
+	"aws":{
+		 "accessKeyId": "AKIAUMZNKWVKQ2DD42DI",
+  	"secretAccessKey": "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",
+  	"region": "us-west-2"
+	}
+}
