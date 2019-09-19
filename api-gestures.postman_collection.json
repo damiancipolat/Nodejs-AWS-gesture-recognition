@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "2dea3003-ee5f-4d68-973d-71aeb92749e8",
+		"name": "api-gestures",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Gestures - eyes open",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/C:/Users/54116/Desktop/Proyectos/Nodejs-ID-Validation/selfie.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/gestures/eyes-open",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gestures",
+						"eyes-open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gestures - eyes closed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/C:/Users/54116/Desktop/Proyectos/Nodejs-ID-Validation/resources/selfie - ojos cerrados.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/gestures/eyes-closed",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gestures",
+						"eyes-closed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gestures - smiling",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/C:/Users/54116/Desktop/Proyectos/Nodejs-ID-Validation/resources/selfie - sonrisa.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/gestures/smiling",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"gestures",
+						"smiling"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

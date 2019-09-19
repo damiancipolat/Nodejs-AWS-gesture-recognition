@@ -10,7 +10,7 @@ const {
 	isHappy,
 	useGlasses,
 	useSunGlasses
-} = require('./face-expression.js');
+} = require('./face-expression-functions.js');
 
 //function list to detect gestures.
 const EYESOPEN   = [likeAface, isEyesOpen];
