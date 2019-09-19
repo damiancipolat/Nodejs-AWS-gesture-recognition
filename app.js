@@ -14,8 +14,8 @@ const port 	 = config.get('server.port')||3000;
 const routes = require('./routes');
 
 //Bind middlewares.
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use('/',routes);
 
 //Inicializo el servidor, escuchando conexiones en el puerto fijado en port.

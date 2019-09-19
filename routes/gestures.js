@@ -10,6 +10,6 @@ const {
 	gestureController
 } = require('../controller');
 
-router.post('/',upload.single('avatar'),gestureController);
+router.post('/',upload.single('picture'),gestureController);
 
 module.exports = router;
