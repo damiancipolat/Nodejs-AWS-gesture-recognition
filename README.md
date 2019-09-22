@@ -296,4 +296,6 @@ Follow this steps.
 
 1) Set configuration values.
 2) Run the server with the command **npm start**.
-3) Make a post request 
+3) Make a post request, import api-gestures.postman_collection to test the api using postman.
+4) There are some picture of me :p in ./respurces folder
+5) Have fun.
