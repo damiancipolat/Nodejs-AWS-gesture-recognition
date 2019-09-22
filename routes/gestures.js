@@ -1,19 +1,24 @@
 const express = require('express');
 const router  = express.Router();
 
-//Upload file.
+//Upload file, add multer middleware to process multipart request.
 var multer = require('multer');
 var upload = multer({ dest: 'uploads/' });
 
-//Load controllers.
+//Gestures recognitors.
 const {
-	eyesOpenController,
-	eyesClosedController,
-	smilingController
+	EYESOPEN,
+	EYESCLOSED,
+	SMILING
+} = require('../services/face-gestures.js');
+
+//Load generic controller.
+const {
+	gestureController
 } = require('../controller/gestures.js');
 
-router.post('/eyes-open',   upload.single('picture'), eyesOpenController);
-router.post('/eyes-closed', upload.single('picture'), eyesClosedController);
-router.post('/smiling',     upload.single('picture'), smilingController);
+router.post('/eyes-open',   upload.single('picture'), gestureController(EYESOPEN));
+router.post('/eyes-closed', upload.single('picture'), gestureController(EYESCLOSED));
+router.post('/smiling',     upload.single('picture'), gestureController(SMILING));
 
 module.exports = router;
