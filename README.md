@@ -273,7 +273,8 @@ In this project there are 3 endpoint to gesture analysis.
 
 Send in the body request form-data: the field "picture" as a FILE type.
 
-*POST - complete*
+**POST - complete**
+
 Use this request to detect all the gestures in the same request.
 
 #### Api response
