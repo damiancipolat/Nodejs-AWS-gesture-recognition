@@ -4,121 +4,260 @@ In this example I show how to create an api rest state-less using nodejs + expre
 
 <img src="https://github.com/damiancipolat/React-for-shitty-webs/blob/master/doc/popo2.png?raw=true" width="180px" align="right" />
 
-### Solution:
-After researching I found a good combination of options. Wordpress Headless and React included as script in the <head> section as <script/><link/> tags.
+### Face Analysis:
+I use AWS rekognition api to detect gestures and if the photo is from a human. You can read more info in this links https://docs.aws.amazon.com/es_es/rekognition/latest/dg/what-is.html.
+
+Aws api response example:
+
+```javascript
+{
+    "FaceDetails": [
+        {
+            "BoundingBox": {
+                "Width": 0.20394515991210938,
+                "Height": 0.4204871356487274,
+                "Left": 0.1556132435798645,
+                "Top": 0.11629478633403778
+            },
+            "AgeRange": {
+                "Low": 17,
+                "High": 29
+            },
+            "Smile": {
+                "Value": true,
+                "Confidence": 91.7283706665039
+            },
+            "Eyeglasses": {
+                "Value": true,
+                "Confidence": 99.88982391357422
+            },
+            "Sunglasses": {
+                "Value": true,
+                "Confidence": 92.23440551757812
+            },
+            "Gender": {
+                "Value": "Female",
+                "Confidence": 99.97311401367188
+            },
+            "Beard": {
+                "Value": false,
+                "Confidence": 99.83840942382812
+            },
+            "Mustache": {
+                "Value": false,
+                "Confidence": 99.95821380615234
+            },
+            "EyesOpen": {
+                "Value": true,
+                "Confidence": 99.99461364746094
+            },
+            "MouthOpen": {
+                "Value": true,
+                "Confidence": 99.51335906982422
+            },
+            "Emotions": [
+                {
+                    "Type": "CALM",
+                    "Confidence": 0.1430344581604004
+                },
+                {
+                    "Type": "CONFUSED",
+                    "Confidence": 0.11641046404838562
+                },
+                {
+                    "Type": "SURPRISED",
+                    "Confidence": 0.1008024662733078
+                },
+                {
+                    "Type": "DISGUSTED",
+                    "Confidence": 0.018225016072392464
+                },
+                {
+                    "Type": "SAD",
+                    "Confidence": 0.003681173315271735
+                },
+                {
+                    "Type": "FEAR",
+                    "Confidence": 0.004482289310544729
+                },
+                {
+                    "Type": "HAPPY",
+                    "Confidence": 99.58031463623047
+                },
+                {
+                    "Type": "ANGRY",
+                    "Confidence": 0.03304917365312576
+                }
+            ],
+            "Landmarks": [
+                {
+                    "Type": "eyeLeft",
+                    "X": 0.23311273753643036,
+                    "Y": 0.28700149059295654
+                },
+                {
+                    "Type": "eyeRight",
+                    "X": 0.32564252614974976,
+                    "Y": 0.27746525406837463
+                },
+                {
+                    "Type": "mouthLeft",
+                    "X": 0.24938040971755981,
+                    "Y": 0.4339939057826996
+                },
+                {
+                    "Type": "mouthRight",
+                    "X": 0.3259195387363434,
+                    "Y": 0.42571786046028137
+                },
+                {
+                    "Type": "nose",
+                    "X": 0.2994106709957123,
+                    "Y": 0.3559057116508484
+                },
+                {
+                    "Type": "leftEyeBrowLeft",
+                    "X": 0.1898277848958969,
+                    "Y": 0.258786678314209
+                },
+                {
+                    "Type": "leftEyeBrowRight",
+                    "X": 0.25588130950927734,
+                    "Y": 0.23913364112377167
+                },
+                {
+                    "Type": "leftEyeBrowUp",
+                    "X": 0.22465303540229797,
+                    "Y": 0.2357855588197708
+                },
+                {
+                    "Type": "rightEyeBrowLeft",
+                    "X": 0.3103598654270172,
+                    "Y": 0.23413047194480896
+                },
+                {
+                    "Type": "rightEyeBrowRight",
+                    "X": 0.3547131419181824,
+                    "Y": 0.2416505664587021
+                },
+                {
+                    "Type": "rightEyeBrowUp",
+                    "X": 0.3345111012458801,
+                    "Y": 0.22470000386238098
+                },
+                {
+                    "Type": "leftEyeLeft",
+                    "X": 0.21419213712215424,
+                    "Y": 0.28888216614723206
+                },
+                {
+                    "Type": "leftEyeRight",
+                    "X": 0.25064346194267273,
+                    "Y": 0.2863885760307312
+                },
+                {
+                    "Type": "leftEyeUp",
+                    "X": 0.23293153941631317,
+                    "Y": 0.2798457145690918
+                },
+                {
+                    "Type": "leftEyeDown",
+                    "X": 0.23377712070941925,
+                    "Y": 0.2934091091156006
+                },
+                {
+                    "Type": "rightEyeLeft",
+                    "X": 0.305652916431427,
+                    "Y": 0.28061890602111816
+                },
+                {
+                    "Type": "rightEyeRight",
+                    "X": 0.33733639121055603,
+                    "Y": 0.27545079588890076
+                },
+                {
+                    "Type": "rightEyeUp",
+                    "X": 0.32426485419273376,
+                    "Y": 0.2699545621871948
+                },
+                {
+                    "Type": "rightEyeDown",
+                    "X": 0.3238048255443573,
+                    "Y": 0.28349214792251587
+                },
+                {
+                    "Type": "noseLeft",
+                    "X": 0.2737899422645569,
+                    "Y": 0.377468079328537
+                },
+                {
+                    "Type": "noseRight",
+                    "X": 0.3063475489616394,
+                    "Y": 0.3736012876033783
+                },
+                {
+                    "Type": "mouthUp",
+                    "X": 0.2932463586330414,
+                    "Y": 0.41005250811576843
+                },
+                {
+                    "Type": "mouthDown",
+                    "X": 0.29297494888305664,
+                    "Y": 0.4546877443790436
+                },
+                {
+                    "Type": "leftPupil",
+                    "X": 0.23311273753643036,
+                    "Y": 0.28700149059295654
+                },
+                {
+                    "Type": "rightPupil",
+                    "X": 0.32564252614974976,
+                    "Y": 0.27746525406837463
+                },
+                {
+                    "Type": "upperJawlineLeft",
+                    "X": 0.14420086145401,
+                    "Y": 0.304552286863327
+                },
+                {
+                    "Type": "midJawlineLeft",
+                    "X": 0.17792876064777374,
+                    "Y": 0.46004292368888855
+                },
+                {
+                    "Type": "chinBottom",
+                    "X": 0.28907808661460876,
+                    "Y": 0.5331214666366577
+                },
+                {
+                    "Type": "midJawlineRight",
+                    "X": 0.34408921003341675,
+                    "Y": 0.44162437319755554
+                },
+                {
+                    "Type": "upperJawlineRight",
+                    "X": 0.35112330317497253,
+                    "Y": 0.28181537985801697
+                }
+            ],
+            "Pose": {
+                "Roll": -3.4967963695526123,
+                "Yaw": 4.581802845001221,
+                "Pitch": 21.05695152282715
+            },
+            "Quality": {
+                "Brightness": 69.75423431396484,
+                "Sharpness": 95.51618957519531
+            },
+            "Confidence": 99.99998474121094
+        }
+    ]
+}
+```
 
 #### Configuration
 Go to /config/default.json file and set the configuration values.
 
 - Set server ports.
 - Aws credentials.
-
-## Including a full react scaffolding:
-Basically this is part of the solution.
-
-**1) HTML**
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <!--Title-->
-    <title>Hello World</title>
-    <!--React + React-Dom + Babel-->
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-    <!--SASS-->    
-    <link rel="stylesheet/scss" type="text/css" href="style.scss"></link>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>
-    <!--Sass loader-->
-    <script>
-      (async () => {
-        const compiled = (await Promise.all(
-          [...document.querySelectorAll("link")]
-            .filter(l => l.rel === 'stylesheet/scss')
-            .map(async l => {
-              url = l.href;
-              const code = await (await fetch(url)).text();
-              const basename = url.substring(url.lastIndexOf("/")+1);
-              Sass.writeFile(basename, code);
-              return Sass.compile(`@import "${basename}"; `);
-            })
-        )).join("\n");
-        document.head.innerHTML += `<style>${compiled}</style>`;
-        console.log(compiled);
-      })();
-    </script>        
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="text/babel" src="home.js"></script>
-  </body>
-</html>
-```
-
-**2) JS REACT**
-```javascript
-class Hello extends React.Component {
-    
-  constructor(){
-    super();
-    this.state = {
-      message: "my friend (from state)!"
-    };
-    this.updateMessage = this.updateMessage.bind(this);
-  }
-
-  updateMessage() {
-    this.setState({message: "my friend (from changed state)!"});
-  }
-  
-  render() {
-
-     return (
-       <div>
-         <h1>Hello {this.state.message}!</h1>
-         <div className="rojo">
-            Hello, world!
-            <div className="verde">
-              01010101101
-            </div>
-         </div>
-         <div>
-            <button onClick={this.updateMessage}>Click me!</button>
-         </div>
-       </div>
-    );
-
-  }
-
-}
-
-ReactDOM.render(<Hello/>, document.getElementById("root"));
-```
-
-**3) SCSS**
-```css
-.rojo{
-	background:red;
-	color:white;
-
-	.verde{
-		background:green;
-		color:white;
-	}
-
-}
-```
-
-## Blockquotes
-I know, process react + babel + sass when the web is loading, is'nt the good solutions, but is one aproach to modernize a old project. If is possible is a good idea to have to transpile process and load a bundle.js file.
-
-## Folders:
-Take a look of the folder basic and examples with some code ready to be used.
-
-- **Basic**: React + babel + sass + base layout of a website.
-- **Examples**: React + babel + sass + componentes examples.
-
-### SASS LOADER:
-I have written an adaptation of a sass loader https://github.com/medialize/browser-sass/issues/2 in the base file you can find it in: https://github.com/damiancipolat/React-for-shitty-webs/blob/master/basic/lib/sassLoader.js
