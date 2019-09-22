@@ -261,3 +261,39 @@ Go to /config/default.json file and set the configuration values.
 
 - Set server ports.
 - Aws credentials.
+
+### Gesture Recognition in photos
+Go to ./services/face-expression-functions.js in this filre there are bunch of js functions that using the aws response detect a custom gesture.
+
+In this project there are 3 endpoint to gesture analysis.
+- POST / http://127.0.0.1:3000/gestures/eyes-open
+- POST / http://127.0.0.1:3000/gestures/eyes-closed
+- POST / http://127.0.0.1:3000/gestures/smiling
+
+#### Api response
+```javascript
+{
+    "gestures": [
+        {
+            "name": "likeAface",
+            "match": true
+        },
+        {
+            "name": "isSmiling",
+            "match": true
+        },
+        {
+            "name": "isHappy",
+            "match": true
+        }
+    ],
+    "match": true
+}
+```
+
+### How to use
+Follow this steps.
+
+1) Set configuration values.
+2) Run the server with the command **npm start**.
+3) Make a post request 
