@@ -6,9 +6,9 @@ const {
 
 //Set aws credentials
 const rekognition = new AWS.Rekognition({
-  accessKeyId: 'AKIAUMZNKWVKQ2DD42DI',
-  secretAccessKey: '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',
-  region: 'us-west-2',
+  accessKeyId: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  secretAccessKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
+  region: 'xxxxxxxxxxxxxxxxxxx',
 });
 
 //Process the image vs a gesture.
