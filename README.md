@@ -270,6 +270,8 @@ In this project there are 3 endpoint to gesture analysis.
 - POST / http://127.0.0.1:3000/gestures/eyes-closed
 - POST / http://127.0.0.1:3000/gestures/smiling
 
+Send in the body request form-data: the field "picture" as a FILE type.
+
 #### Api response
 ```javascript
 {
