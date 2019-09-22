@@ -1,15 +1,15 @@
-const AWS = require('aws-sdk');
+const AWS 	 = require('aws-sdk');
+const config = require('config');
 
 const {
 	parse
 } = require('./face-foo.js');
 
+//Get credentials.
+const creds = config.get('aws');
+
 //Set aws credentials
-const rekognition = new AWS.Rekognition({
-  accessKeyId: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-  secretAccessKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
-  region: 'xxxxxxxxxxxxxxxxxxx',
-});
+const rekognition = new AWS.Rekognition(creds);
 
 //Process the image vs a gesture.
 const processGesture = async (image,gesture)=>{
