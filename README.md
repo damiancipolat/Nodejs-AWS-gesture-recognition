@@ -2,7 +2,7 @@
 
 In this example I show how to create an api rest state-less using nodejs + express with an integration with AWS REKOGNITION.
 
-<img src="https://github.com/damiancipolat/React-for-shitty-webs/blob/master/doc/popo2.png?raw=true" width="180px" align="right" />
+<img src="https://github.com/damiancipolat/Nodejs-AWS-gesture-recognition/blob/master/resources/meme.jpeg?raw=true" width="180px" align="right" />
 
 ### Face Analysis:
 I use AWS rekognition api to detect gestures and if the photo is from a human. You can read more info in this links https://docs.aws.amazon.com/es_es/rekognition/latest/dg/what-is.html.
