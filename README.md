@@ -321,4 +321,4 @@ npm start
 ### INTERACTIVE WEB
 Open a browser in http:127.0.0.1:5000, follow the instructrion. The orange box is the current gesture to make, if fail a error beep will sound. When the recognition is sucedd a short beep wil be reproduced.
 
-<img src="https://github.com/damiancipolat/Nodejs-AWS-gesture-recognition/blob/master/resources/web.png?raw=true" width="180px" align="center" />
+<img src="https://github.com/damiancipolat/Nodejs-AWS-gesture-recognition/blob/master/resources/web.png?raw=true"  align="center" />
