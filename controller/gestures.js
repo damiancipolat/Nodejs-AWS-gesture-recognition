@@ -1,15 +1,16 @@
 const assert = require('assert');
 
 const {
-	loadFile
+	loadFile,
+	getFileFromBase64
 } = require('../lib/lib.js');
 
 const {
 	processGesture
 } = require('../services/face-processor.js');
 
-//Process gesture batch.
-const processBatch = async (req, GESTURE)=>{
+//Normal file binary load from request.
+const fileLoad = async (req)=>{
 
 	const {
 		destination,
@@ -18,8 +19,20 @@ const processBatch = async (req, GESTURE)=>{
 
 	//Load file.
 	const file = destination+filename;
-	const img  = await loadFile(file);
+	return await loadFile(file);
 
+}
+
+//Process gesture batch.
+const processBatch = async (req, GESTURE)=>{
+
+	let img = null;
+
+	if (req.body&&req.body.picture64)
+		img = getFileFromBase64(req.body.picture64);
+	else
+		img = await fileLoad(req);
+	
 	//Process image.
 	return await processGesture(img,GESTURE);
 
@@ -33,7 +46,7 @@ const gestureController = (gesture) => async (req,res)=>{
 		console.log('* API Gestures - processing request - EYES OPEN...');
 
 		//Validate image file.
-		assert(req&&req.file,'File not found in request');
+		assert((req.body&&req.body.picture64)||req.file,'File not found in request');
 
 		const result = await processBatch(req,gesture);
 		res.status(200).json(result);
