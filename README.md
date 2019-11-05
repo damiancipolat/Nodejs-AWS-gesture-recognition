@@ -305,7 +305,7 @@ Follow this steps.
 2) Run the server with the command **npm start**.
 3) Make a post request, import api-gestures.postman_collection to test the api using postman.
 4) There are some picture of me :p in ./respurces folder
-5) In other console run the webserver cmd /web and run **npm start** and open a browser in http:127.0.0.1:5000
+5) In other console run the webserver cmd /web and run **npm start** and open a browser in http://127.0.0.1:5000
 6) Have fun.
 
 #### Commands:
@@ -319,6 +319,6 @@ npm start
 ```
 
 ### INTERACTIVE WEB
-Open a browser in http:127.0.0.1:5000, follow the instructrion. The orange box is the current gesture to make, if fail a error beep will sound. When the recognition is sucedd a short beep wil be reproduced.
+Open a browser in http://127.0.0.1:5000, follow the instructrion. The orange box is the current gesture to make, if fail a error beep will sound. When the recognition is sucedd a short beep wil be reproduced.
 
 <img src="https://github.com/damiancipolat/Nodejs-AWS-gesture-recognition/blob/master/resources/web.png?raw=true"  align="center" />
